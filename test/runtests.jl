@@ -18,6 +18,7 @@ end
 
 p(A(),A(),C(),D())
 p(A(),B(),D(),C())  
+p(B(),A(),C(),D())
 
 methods(t)
 
