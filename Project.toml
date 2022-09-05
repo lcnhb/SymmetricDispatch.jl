@@ -1,0 +1,13 @@
+name = "SymmetricDispatch"
+uuid = "1eb2ecf7-7547-4427-9254-f8e5a5c22f1d"
+authors = ["Lucien Huber <huberlulu@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1.7"
+
+[extras]
+Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
+
+[targets]
+test = ["Test"]
