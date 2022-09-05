@@ -1,5 +1,9 @@
 module SymmetricDispatch
 
-# Write your package code here.
+using MacroTools
+using Combinatorics
+export @symmetric 
+
+include("symmetric.jl")
 
 end
