@@ -52,15 +52,20 @@ arguments=newarguments
 dict[:args]=combineargs(arguments)
 argtypes=map(x->x[2],symargs)
 
+
 perms=collect(multiset_permutations(argtypes,length(argtypes)))
+
 
 n=length(argtypes)
 m=length(perms)
+
+@info "Number of permutations: $m"
 MATCHED  = gensym()
+isexpr(perms[1][1]) ? MATCHED=:($MATCHED,n) : @show MATCHED
 intperms=Array{Int}(undef, m,n)
 for (i,perm) in enumerate(perms)
 for (j,type) in enumerate(argtypes)
-  k  =findfirst(x -> x===type,perm)
+  k  =findfirst(x -> inexpr(x,type),perm)
   perm[k]=MATCHED
   intperms[i,j]=k
 end
