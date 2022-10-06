@@ -29,7 +29,7 @@ macro symmetric(def)
 dict=splitdef(def)
 arguments=map(splitarg,dict[:args]) 
 
-
+@show arguments
 symargs=[]
 indices=[]
 nargs=0 
