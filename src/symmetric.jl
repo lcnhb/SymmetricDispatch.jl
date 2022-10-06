@@ -55,7 +55,9 @@ m=length(perms)
 
 
 MATCHED  = gensym()
-isexpr(perms[1][1]) && MATCHED=:($MATCHED,n)
+if isexpr(perms[1][1])
+   MATCHED=:($MATCHED,n)
+end
 intperms=Array{Int}(undef, m,n)
 for (i,perm) in enumerate(perms)
 for (j,type) in enumerate(argtypes)
