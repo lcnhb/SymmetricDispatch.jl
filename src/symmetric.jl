@@ -14,22 +14,16 @@ function invertPerm(perm,vector)
   end
   newVector
 end
-invertPerm([2,3,1],applyPerm([2,3,1],[1,2,3]))
+
 function combineargs(arguments)
   [combinearg(arg...) for arg in arguments]
 end
-def = :(
-  function t(p,t,s::A,[a::A,b,c::B,d::D])
-      @info "Abcd"
-  end
-)
-
 
 macro symmetric(def)
 dict=splitdef(def)
 arguments=map(splitarg,dict[:args]) 
 
-@show arguments
+
 symargs=[]
 indices=[]
 nargs=0 
@@ -59,7 +53,7 @@ perms=collect(multiset_permutations(argtypes,length(argtypes)))
 n=length(argtypes)
 m=length(perms)
 
-@info "Number of permutations: $m"
+
 MATCHED  = gensym()
 isexpr(perms[1][1]) ? MATCHED=:($MATCHED,n) : @show MATCHED
 intperms=Array{Int}(undef, m,n)
